@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint \"./src/**/*.js\"",
+    "lint": "eslint \"src/**/*.js\"",
     "start": "NODE_ENV=DEVELOPMENT nodemon src/index.js --exec 'prettier --write \"**/*.@(js|json)\" && babel-node'",
-    "start:prod": "rimraf dist && babel ./src --out-dir dist && TZ=utc NODE_ENV=PRODUCTION node ./dist/index.js"
+    "start:prod": "rimraf dist && babel src --out-dir dist && TZ=utc NODE_ENV=PRODUCTION node dist/index.js"
   },
   "husky": {
     "hooks": {
