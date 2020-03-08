@@ -1,0 +1,23 @@
+version: '3.7'
+
+volumes:
+  postgres:
+
+services:
+  postgis:
+    image: mdillon/postgis
+    container_name: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+  some-api:
+    container_name: some-api
+    restart: always
+    build: .
+    ports:
+      - 3000:3000
